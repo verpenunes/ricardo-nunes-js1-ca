@@ -25,6 +25,8 @@ async function fetchDetails() {
     
         console.log(details);
 
+        detailContainer.innerHTML = "";
+
         const createHtml = details;
     
         createHtml.forEach(function (detail) {
@@ -42,11 +44,6 @@ async function fetchDetails() {
         console.log("An error occurred");
         detailContainer.innerHTML = displayError("An error occurred when calling the API");
     }
-
 }
-
-
-
-
 
 fetchDetails();

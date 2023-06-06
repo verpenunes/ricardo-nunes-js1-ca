@@ -7,6 +7,7 @@ const email = document.querySelector("#email");
 const emailError = document.querySelector("#emailError");
 const address = document.querySelector("#address");
 const addressError = document.querySelector("#addressError");
+const message = document.querySelector("#message");
 
 function validateForm(event) {
     event.preventDefault();
@@ -53,3 +54,12 @@ function validateEmail(email) {
     const patternMatches = regEx.test(email);
     return patternMatches;
 }
+
+function submitForm(event) {
+    event.preventDefault();
+
+    message.innerHTML = `<div class="message">Your message has been sent</div>`;
+    form.reset();
+}
+
+form.addEventListener("submit", submitForm);

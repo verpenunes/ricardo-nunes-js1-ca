@@ -38,7 +38,7 @@ a {
 
 h1 {
     margin-left: 1rem;
-    width: 130px;
+    width: 110px;
 }
 
 .name {
@@ -71,7 +71,7 @@ h1 {
     margin: 0 auto;
 }
 
-.results {
+.results, .details {
     display: flex;
     flex-wrap: wrap;
 }
@@ -87,10 +87,10 @@ h1 {
 }
 
 input {
-    width: 60%;
-    margin-top: 2px;
-    padding: 8px;
-    font-size: 14px;
+    width: 50%;
+    margin-top: 10px;
+    padding: 6px;
+    font-size: 12px;
 }
 
 button {
@@ -99,9 +99,9 @@ button {
     width: 200px;
     padding: 1rem;
     color: white;
-    margin-top: 10px;
+    margin-top: 12px;
     cursor: pointer;
-    border-radius: 0.2rem;
+    border-radius: 0.4rem;
 }
 
 .form-error {
@@ -112,10 +112,13 @@ button {
 }
 
 .message {
+    margin-top: 25px;
     background: green;
     padding: 1rem;
     color: white;
     border-radius: 1rem;
     margin-bottom: 1rem;
 }
+
+
 
