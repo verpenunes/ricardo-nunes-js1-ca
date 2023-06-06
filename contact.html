@@ -11,12 +11,13 @@
         <main class="container">
             <a href="/" class="back">Back</a>
             <div id="message"></div>
-            <form>
+            <form id="contactForm">
                 <div>
                     <label>
                         Name (required)
                         <input name="firstName" id="firstName" />
                     </label>
+                    <div class="form-error" id="firstNameError">Please enter your name</div>
                 </div>
 
                 <div>
@@ -24,6 +25,7 @@
                         Subject (minimum 10 characters)
                         <input name="subject" id="subject" />
                     </label>
+                    <div class="form-error" id="subjectError">Subject must have minimum 10 characters</div>
                 </div>
 
                 <div>
@@ -31,6 +33,7 @@
                         Email (required)
                         <input name="email" id="email" />
                     </label>
+                    <div class="form-error" id="emailError">Please enter a valid email address</div>
                 </div>
 
                 <div>
@@ -38,9 +41,11 @@
                         Address (minimum 25 characters)
                         <input name="address" id="address" />
                     </label>
+                    <div class="form-error" id="addressError">Please enter an address with minimum 25 character
+                    </div>
                 </div>
 
-                <button disabled>Send</button>
+                <button>Submit</button>
             </form>
         </main>
         <script src="js/contact.js"></script>

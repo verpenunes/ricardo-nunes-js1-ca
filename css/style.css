@@ -104,6 +104,13 @@ button {
     border-radius: 0.2rem;
 }
 
+.form-error {
+    display: none;
+    color:red;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
 .message {
     background: green;
     padding: 1rem;
