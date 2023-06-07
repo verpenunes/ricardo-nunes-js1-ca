@@ -8,6 +8,7 @@ const emailError = document.querySelector("#emailError");
 const address = document.querySelector("#address");
 const addressError = document.querySelector("#addressError");
 const message = document.querySelector("#message");
+const button = document.querySelector("button");
 
 function validateForm(event) {
     event.preventDefault();
@@ -49,11 +50,19 @@ function checkLength(value, len) {
     }
 }
 
-function validateEmail(email) {
-    const regEx = /\S+@\S+\.\S+/;
-    const patternMatches = regEx.test(email);
-    return patternMatches;
+function checkIfButtonIsDisabled() {
+    if (checkLength(firstName.value, 0) && checkLength(subject.value, 9) && validateEmail(email.value) && checkLength(address.value, 24)) {
+        button.disabled = false;
+    } else {
+        message.innerHTML = "";
+        button.disabled = true;
+    }
 }
+
+firstName.addEventListener("keyup", checkIfButtonIsDisabled);
+subject.addEventListener("keyup", checkIfButtonIsDisabled);
+email.addEventListener("keyup", checkIfButtonIsDisabled);
+address.addEventListener("keyup", checkIfButtonIsDisabled);
 
 function submitForm(event) {
     event.preventDefault();
@@ -63,3 +72,11 @@ function submitForm(event) {
 }
 
 form.addEventListener("submit", submitForm);
+
+function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatches = regEx.test(email);
+    return patternMatches;
+}
+
+
