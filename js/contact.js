@@ -36,8 +36,7 @@ function validateForm(event) {
     } else {
         addressError.style.display = "block";
     }
-
-    console.log("Hello");
+    //console.log("Hello");
 }
 
 form.addEventListener("submit", validateForm);

@@ -1,4 +1,4 @@
-const newTitle = document.querySelector(".title");
+const changeTitle = document.querySelector(".title");
 const detailContainer = document.querySelector(".details");
 const subRegion = document.querySelector(".subregion");
 
@@ -25,20 +25,25 @@ async function fetchDetails() {
     
         console.log(details);
 
-        detailContainer.innerHTML = "";
-
         const createHtml = details;
-    
-        createHtml.forEach(function (detail) {
-           newTitle.innerHTML = `${detail.name.official}`;
 
-           subRegion.innerHTML = `<h1>Subregion: ${detail.subregion}</h1>`;
+        detailContainer.innerHTML = `<div class="loader"></div>`;
 
-           detailContainer.innerHTML += `<div class="result"> 
-                                         <p> Capital: ${detail.capital[0]} </p>
-                                         <p> Area: ${detail.area}</p>
-                                         <p> Population: ${detail.population}</p></div>`;
-        });
+        setTimeout(function() {
+
+            detailContainer.innerHTML = "";
+
+            createHtml.forEach(function (detail) {
+        changeTitle.innerHTML = `${detail.name.official}`;
+     
+                subRegion.innerHTML = `<h1>Subregion: ${detail.subregion}</h1>`;
+     
+                detailContainer.innerHTML += `<div class="result"> 
+                                              <p> Capital: ${detail.capital[0]} </p>
+                                              <p> Area: ${detail.area}</p>
+                                              <p> Population: ${detail.population}</p></div>`;
+             });
+        },1000);
     }
     catch (error) {
         console.log("An error occurred");

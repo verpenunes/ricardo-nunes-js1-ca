@@ -1,0 +1,42 @@
+input {
+    width: 50%;
+    margin-top: 10px;
+    padding: 6px;
+    font-size: 12px;
+}
+
+button {
+    background: rgb(135, 22, 56);
+    border: none;
+    width: 200px;
+    padding: 1rem;
+    color: white;
+    margin-top: 12px;
+    cursor: pointer;
+    border-radius: 0.4rem;
+}
+
+button:disabled {
+    background: lightgrey;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+}
+
+.form-error {
+    display: none;
+    color:red;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.message {
+    margin-top: 25px;
+    background: green;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}

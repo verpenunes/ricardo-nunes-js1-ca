@@ -5,16 +5,16 @@ const url = `https://restcountries.com/v3.1/region/europe`;
 
 async function fetchRegion() {
     const response = await fetch(url);
-    const newRegion = await response.json();
+    const regionContinent = await response.json();
 
     //console.log(newRegion);
 
-    resultsContinent.innerHTML = `<h1>Continent: ${newRegion[0].region}</h1>`;
+    resultsContinent.innerHTML = `<h1>Continent: ${regionContinent[0].region}</h1>`;
 }
 
 fetchRegion();
 
-async function fetchData() {
+async function fetchCountries() {
     try {
         const response = await fetch(url);
         const json = await response.json();
@@ -23,21 +23,26 @@ async function fetchData() {
     
         const countries = json;
     
-        resultsCountries.innerHTML = "";
-        
-        for (let i = 0; i < countries.length; i++) {
-            //console.log(countries[i].cca3);
+        resultsCountries.innerHTML = `<div class="loader"></div>`;
 
-            if(i === 16) {
-                break;
+        setTimeout(function() {
+
+            resultsCountries.innerHTML = "";
+
+            for (let i = 0; i < countries.length; i++) {
+                //console.log(countries[i].cca3);
+    
+                if(i === 16) {
+                    break;
+                }
+    
+                resultsCountries.innerHTML += `<a href="details.html?cca3=${countries[i].cca3}" class="result">
+                                            <div class="name"> ${countries[i].name.common} </div>
+                                            <div class="flag"><h1> ${countries[i].flag} </h1></div>
+                                            <div class=subregion> ${countries[i].name.official}</div>
+                                            </a>`;
             }
-
-            resultsCountries.innerHTML += `<a href="details.html?cca3=${countries[i].cca3}" class="result">
-                                        <div class="name"> ${countries[i].name.common} </div>
-                                        <div class="flag"><h1> ${countries[i].flag} </h1></div>
-                                        <div class=subregion> ${countries[i].name.official}</div>
-                                        </a>`;
-        }
+        },1000);  
     }
     catch(error) {
         console.log(error);
@@ -45,4 +50,4 @@ async function fetchData() {
     }
 }
     
-fetchData();
+fetchCountries();
